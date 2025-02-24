@@ -7,7 +7,7 @@
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
@@ -72,8 +72,8 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 
 -- ShiftWidth and TabStop
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.expandtab = false
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.expandtab = false
 
 -- vim: ts=2 sts=2 sw=2 et
