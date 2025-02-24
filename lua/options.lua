@@ -71,4 +71,9 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- ShiftWidth and TabStop
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.expandtab = false
+
 -- vim: ts=2 sts=2 sw=2 et
