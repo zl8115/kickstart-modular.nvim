@@ -91,4 +91,8 @@ require('lazy').setup({
   },
 })
 
+-- [WINDOWS] Configure treesitter to use clang
+require('nvim-treesitter.install').compilers = { 'clang' }
+require('nvim-treesitter.install').prefer_git = false
+
 -- vim: ts=2 sts=2 sw=2 et
