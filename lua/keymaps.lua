@@ -40,6 +40,11 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Custom keymaps
 vim.keymap.set('n', 'gb', '<cmd>b#<CR>', { desc = '[G]oto Previous [B]uffer' })
 vim.keymap.set('n', '<A-z>', '<cmd>set wrap!<CR>', { desc = 'Toggle Wrap' })
+vim.keymap.set('n', '<A-f>', 'za', { desc = '[F]old Toggle' })
+vim.keymap.set('n', '<A-c>', 'zf%', { desc = '[C]reate Fold Around' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bp|bd!#<CR>', { desc = '[B]uffer [D]elete' })
+vim.keymap.set('n', '<leader>di', '<cmd>diffthis<CR>', { desc = '[D]iff th[i]s' })
+vim.keymap.set('n', '<leader>do', '<cmd>diffoff!<CR>', { desc = '[D]iff [O]ff' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
