@@ -93,11 +93,17 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+-- Custom Global Variables
+vim.g.obsidian_vault = os.getenv 'OBSIDIANVAULTPATH'
+
 -- [[ Setting options ]]
 require 'options'
 
 -- [[ Basic Keymaps ]]
 require 'keymaps'
+
+-- [[ Custom AutoCommands ]]
+require 'autocmds'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 require 'lazy-bootstrap'
