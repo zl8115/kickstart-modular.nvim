@@ -14,7 +14,12 @@ return {
         ---@module 'mason.settings'
         ---@type MasonSettings
         ---@diagnostic disable-next-line: missing-fields
-        opts = {},
+        opts = {
+          registries = {
+            'github:mason-org/mason-registry',
+            'github:Crashdummyy/mason-registry',
+          },
+        },
       },
       -- Maps LSP server names between nvim-lspconfig and Mason package names.
       'mason-org/mason-lspconfig.nvim',
@@ -125,6 +130,7 @@ return {
         clangd = {},
         cmake = {},
         -- gopls = {},
+        roslyn = {},
         pyright = {},
         -- rust_analyzer = {},
         --
