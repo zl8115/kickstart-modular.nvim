@@ -75,4 +75,13 @@ vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 vim.o.expandtab = true
 
+-- PowerShell 7 as shell
+vim.o.shell = 'pwsh'
+vim.o.shellquote = ''
+vim.o.shellxquote = vim.o.shellquote
+vim.o.shellcmdflag =
+  "-NoProfile -NoLogo -NonInteractive -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues['Out-File:Encoding']='utf8';$PSStyle.OutputRendering='plaintext';Remove-Alias -Force -ErrorAction SilentlyContinue tee;"
+vim.o.shellredir = '2>&1 | Out-File -Encoding utf8 %s; exit $LastExitCode'
+vim.o.shellpipe = '2>&1 | Out-File -Encoding utf8 %s; exit $LastExitCode'
+
 -- vim: ts=2 sts=2 sw=2 et
