@@ -18,6 +18,7 @@ dap.configurations.cpp = {
     cwd = '${workspaceFolder}',
     stopAtBeginningOfMainSubprogram = true,
     -- stopAtEntry = true,
+    postRunCommands = { 'catch throw' },
   },
 }
 
