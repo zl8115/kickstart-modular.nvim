@@ -1,37 +1,29 @@
--- vim.api.nvim_create_autocmd('User', {
---   pattern = 'LazyLoad',
---   callback = function(args)
---     if args.data == 'obsidian.nvim' then
---       vim.cmd.colorscheme 'habamax'
---     end
---   end,
--- })
---
+-- NOTE: Replace the below colorscheme autocmd with exrc instead
 
 -- Canonical form of a directory so two paths can be compared: expands '~',
 -- resolves symlinks/junctions, drops trailing slashes, and on Windows unifies
 -- slashes and case (paths there are case-insensitive). Returns nil if the
 -- path is unset, empty, or doesn't exist.
-local is_windows = vim.fn.has 'win32' == 1
-local function resolve_dir(path)
-  if path == nil or path == '' then
-    return nil
-  end
-  local real = vim.uv.fs_realpath(vim.fs.normalize(path))
-  if real and is_windows then
-    real = vim.fs.normalize(real):lower()
-  end
-  return real
-end
-
-local obsidian_vault = resolve_dir(vim.g.obsidian_vault)
-
-if obsidian_vault then
-  vim.api.nvim_create_autocmd({ 'VimEnter', 'DirChanged' }, {
-    callback = function()
-      if resolve_dir(vim.fn.getcwd()) == obsidian_vault then
-        vim.cmd.colorscheme 'habamax'
-      end
-    end,
-  })
-end
+-- local is_windows = vim.fn.has 'win32' == 1
+-- local function resolve_dir(path)
+--   if path == nil or path == '' then
+--     return nil
+--   end
+--   local real = vim.uv.fs_realpath(vim.fs.normalize(path))
+--   if real and is_windows then
+--     real = vim.fs.normalize(real):lower()
+--   end
+--   return real
+-- end
+--
+-- local obsidian_vault = resolve_dir(vim.g.obsidian_vault)
+--
+-- if obsidian_vault then
+--   vim.api.nvim_create_autocmd({ 'VimEnter', 'DirChanged' }, {
+--     callback = function()
+--       if resolve_dir(vim.fn.getcwd()) == obsidian_vault then
+--         vim.cmd.colorscheme 'habamax'
+--       end
+--     end,
+--   })
+-- end
