@@ -95,6 +95,7 @@ vim.g.have_nerd_font = true
 
 -- Custom Global Variables
 vim.g.obsidian_vault = os.getenv 'OBSIDIANVAULTPATH'
+vim.g.benakingdom_vault = os.getenv 'BENAKINGDOMVAULTPATH'
 
 -- [[ Setting options ]]
 require 'options'

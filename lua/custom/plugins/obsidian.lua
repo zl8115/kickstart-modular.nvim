@@ -1,5 +1,6 @@
 return {
   'obsidian-nvim/obsidian.nvim',
+  priority = 999, -- before snacks
   version = '*', -- recommended, use latest release instead of latest commit
   lazy = true,
   ft = 'markdown',
@@ -52,7 +53,7 @@ return {
     },
     picker = {
       -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', 'mini.pick' or 'snacks.pick'.
-      name = 'snacks.pick',
+      name = 'snacks.picker',
       -- Optional, configure key mappings for the picker. These are the defaults.
       -- Not all pickers support all mappings.
       note_mappings = {

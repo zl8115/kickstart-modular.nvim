@@ -29,6 +29,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
+vim.keymap.set('t', '<C-q>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
@@ -52,14 +53,31 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+-- Custom helpers
+-- @param path string
+local function pathToUnix(path)
+  return path:gsub("\\", "/"):gsub(" ","\\ ")
+end
+
+local function copyFileImpl(string)
+  local filepath = vim.fn.expand(string)
+  vim.fn.setreg('+', '"' .. filepath .. '"')
+end
+
+local function copyFileName() copyFileImpl("%:t") end
+local function copyFilePath() copyFilePath("%:p") end
+
 -- Custom keymaps
 vim.keymap.set('n', 'gb', '<cmd>b#<CR>', { desc = '[G]oto Previous [B]uffer' })
 vim.keymap.set('n', '<A-z>', '<cmd>set wrap!<CR>', { desc = 'Toggle Wrap' })
 vim.keymap.set('n', '<A-f>', 'za', { desc = '[F]old Toggle' })
 vim.keymap.set('n', '<A-c>', 'zf%', { desc = '[C]reate Fold Around' })
-vim.keymap.set('n', '<leader>bd', '<cmd>bp|bd!#<CR>', { desc = '[B]uffer [D]elete' })
+vim.keymap.set('n', '<leader>db', '<cmd>bp|bd!#<CR>', { desc = '[D]elete [B]uffer' })
 vim.keymap.set('n', '<leader>di', '<cmd>diffthis<CR>', { desc = '[D]iff th[i]s' })
 vim.keymap.set('n', '<leader>do', '<cmd>diffoff!<CR>', { desc = '[D]iff [O]ff' })
+
+vim.keymap.set('n', '<leader>cf', copyFileName, { desc = '[C]opy [F]ile Name' })
+vim.keymap.set('n', '<leader>cp', copyFilePath, { desc = '[C]opy [P]ath' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
