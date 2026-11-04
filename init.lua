@@ -96,6 +96,10 @@ vim.g.have_nerd_font = true
 -- Custom Global Variables
 vim.g.obsidian_vault = os.getenv 'OBSIDIANVAULTPATH'
 vim.g.benakingdom_vault = os.getenv 'BENAKINGDOMVAULTPATH'
+local isDevbox = os.getenv 'DEVBOXENV'
+if (isDevbox ~= nil and isDevbox ~= "" and isDevbox ~= "0" and isDevbox:lower() ~= "false") then
+  vim.g.devbox_env = true
+end
 
 -- [[ Setting options ]]
 require 'options'

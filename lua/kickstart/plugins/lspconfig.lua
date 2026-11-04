@@ -14,7 +14,12 @@ return {
         ---@module 'mason.settings'
         ---@type MasonSettings
         ---@diagnostic disable-next-line: missing-fields
-        opts = {},
+        opts = {
+          registries = {
+            'github:mason-org/mason-registry',
+            'github:Crashdummyy/mason-registry',
+          },
+        },
       },
       -- Maps LSP server names between nvim-lspconfig and Mason package names.
       'mason-org/mason-lspconfig.nvim',
@@ -76,6 +81,7 @@ return {
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
+          --NOTE: Commented out for snacks
           -- map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           -- The following two autocommands are used to highlight references of the
@@ -124,6 +130,7 @@ return {
       local servers = {
         clangd = {},
         cmake = {},
+        roslyn = {},
         -- gopls = {},
         pyright = {},
         -- rust_analyzer = {},
@@ -178,6 +185,12 @@ return {
           },
         },
       }
+
+      if (vim.g.devboxenv) then
+        vim.tbl_deep_extend("force", servers, {
+        roslyn = {},
+      })
+      end
 
       -- Ensure the servers and tools above are installed
       --

@@ -19,6 +19,7 @@ return {
     scroll = { enabled = false },
     statuscolumn = { enabled = true },
     words = { enabled = false },
+    image = { enabled = true }
   },
   keys = {
     -- Top Pickers & Explorer
